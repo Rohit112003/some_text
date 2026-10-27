@@ -18,7 +18,7 @@ export const Route = createFileRoute("/")({
 
 function Screen() {
   const [loading, setLoading] = useState(true);
-  useEffect(() => { const id = setTimeout(() => setLoading(false), 3800); return () => clearTimeout(id); }, []);
+  useEffect(() => { const id = setTimeout(() => setLoading(false), 4000); return () => clearTimeout(id); }, []);
   return (
     <Page>
       <AnimatePresence>{loading && <Loading key="l" />}</AnimatePresence>

@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { content as C } from "@/config/content";
+import planeCat from "@/assets/plane-cat.png";
 
 function useTyping(text: string, start = true, speed = 70) {
   const [n, setN] = useState(0);
@@ -105,14 +106,14 @@ export function Loading() {
         <motion.div key={i} className="absolute h-10 w-28 rounded-full bg-paper card-shadow text-peach" style={{ top: `${t}%` }}
           initial={{ x: "-20vw" }} animate={{ x: "110vw" }} transition={{ duration: 18 + i * 3, delay: -i * 4, repeat: Infinity, ease: "linear" }} />
       ))}
-      <motion.div className="relative" initial={{ x: "-70vw" }} animate={{ x: "70vw", y: [0, -10, 0, 10, 0] }}
-        transition={{ x: { duration: 3.4, ease: "easeInOut" }, y: { duration: 1.2, repeat: Infinity } }}>
+      <motion.div className="relative" initial={{ x: "-100vw" }} animate={{ x: "100vw", y: [0, -10, 0, 10, 0] }}
+        transition={{ x: { duration: 3.6, ease: "linear" }, y: { duration: 1.2, repeat: Infinity } }}>
         <div className="absolute right-[85%] top-1/2 h-4 w-60 -translate-y-1/2 rounded-full opacity-70 blur-[2px]"
           style={{ background: "linear-gradient(90deg, transparent, #c7b8f5, #bdeccf, #fff3a8, #ffc9a8, #f7bcd0)" }} />
         {["💗", "✨", "💕", "✨"].map((e, i) => (
           <motion.span key={i} className="absolute top-1/2 text-sm" style={{ right: `${100 + i * 25}%` }} animate={{ y: [0, -20], opacity: [1, 0] }} transition={{ duration: 0.9, repeat: Infinity, delay: i * 0.2 }}>{e}</motion.span>
         ))}
-        <div className="drop-shadow-[0_0_18px_rgba(247,188,208,0.9)]"><PlaneCat /></div>
+        <img src={planeCat} alt="Cute cat flying a plane" width={1024} height={768} className="w-56 drop-shadow-[0_0_24px_rgba(247,188,208,0.9)]" />
       </motion.div>
       <p className="mt-10 font-script text-3xl text-primary">{text}<span className="animate-pulse">|</span></p>
     </motion.div>
